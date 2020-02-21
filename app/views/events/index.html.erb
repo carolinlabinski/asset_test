@@ -1,0 +1,39 @@
+
+<% if notice == "Event successfully created!" %>
+<div class="alert alert-success" role="alert">
+<p> Event successfully saved </p></div>
+
+<% end %>
+
+
+<div class="jumbotron" style="background-image: url(https://images.unsplash.com/photo-1495442358998-961b69f45703?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80)">
+  <h1 class="display-4">Find events you love in Paris</h1>
+  <p class="lead">We offer exceptional events in Paris</p>
+  <hr class="my-4">
+  <p>Create and participate in concerts, tastings and other events.</p>
+  <p class="lead">
+    <%= link_to "Create an event", new_event_path, :class => "btn btn-primary btn-lg" %>
+  </p>
+</div>
+<body>
+    </div>
+    <section class="container mt-4 mb-4">
+        
+        <div  class="card-deck mb-3 d-flex justify-content-between">
+          <% @events.each.with_index(1) do |event, index| %>
+            <div class="col-sm-4 mt-6 mb-4">
+              <div class="card">
+                <div class="card-body d-flex align-items-center flex-column">
+                  <h5 class="card-title"><%= link_to "Event n°#{index}", events_path(event.id) %></h5>
+                  <p class="card-text"><%= event.title %></p>
+                  <p class="card-text"><%= event.start_date %></p>
+                  <%= link_to "view the full event", event_path(event.id), :class =>"btn btn-primary" %>
+                </div>
+              </div>
+            </div>
+          <%end %>
+        </div>
+  </section>
+</body>
+
+
